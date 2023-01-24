@@ -1,22 +1,28 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
+import 'package:weather_app/api/constans.dart';
+import 'package:weather_app/model/weather.dart';
 
 class Api {
   var client = http.Client();
 
-  Future<dynamic> get(String url, Map<String, dynamic> queryParameters) async {
+// we add ? bcz we have null value will return, its called nullsaftey in flutter
+  Future<WeatherResult?> get(
+      String path, Map<String, dynamic> queryParameters) async {
     // prpare the full url
-    print(url);
-    var uri = Uri.https(url, '', queryParameters);
+    var uri = Uri.https(baseUrl, path, queryParameters);
 
-    print(uri);
     // fetch data from api
     var response = await http.get(uri);
 
     // check response
     if (response.statusCode == 200) {
-      print(response.body);
+      // jsonDecode to convert json string to map to pass the map to fromJson
+      // method in the WeatherResult
+      return WeatherResult.fromJson(jsonDecode(response.body));
     } else {
-      print(response.statusCode);
+      return null;
     }
   }
 }
