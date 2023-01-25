@@ -126,7 +126,7 @@ class Weather {
 }
 
 class Main {
-  double? temp;
+  num? temp;
   double? feelsLike;
   double? tempMin;
   double? tempMax;
@@ -163,7 +163,7 @@ class Main {
 }
 
 class Wind {
-  double? speed;
+  num? speed;
   int? deg;
 
   Wind({this.speed, this.deg});
