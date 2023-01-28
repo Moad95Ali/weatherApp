@@ -7,4 +7,5 @@ var dailyUrl = "/data/2.5/forecast/daily";
 image(name) => 'http://openweathermap.org/img/wn/${name}@2x.png';
 
 
+iconImage(name) => 'icons/$name.png';
 

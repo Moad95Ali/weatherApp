@@ -7,6 +7,7 @@ import 'package:weather_app/api/constans.dart';
 
 import 'package:weather_app/hourlyweather.dart';
 import 'package:weather_app/model/weather.dart';
+import 'package:weather_app/satellite.dart';
 import 'package:weather_app/style/textStyle.dart';
 import 'package:weather_app/style/textStyle.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -88,8 +89,8 @@ class _HomePageState extends State<HomePage> {
                               height: 150,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
-                                image: NetworkImage(
-                                  image(data?.weather?.first.icon),
+                                image: AssetImage(
+                                  iconImage(data?.weather?.first.icon),
                                 ),
                               )),
                             ),
@@ -107,6 +108,7 @@ class _HomePageState extends State<HomePage> {
                           height: 20,
                         ),
                         const HourlyWather(),
+                        const Satellite()
                       ],
                     ),
                   ),

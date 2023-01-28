@@ -100,11 +100,9 @@ class _HourlyWatherState extends State<HourlyWather> {
                                           height: 35,
                                           decoration: BoxDecoration(
                                               image: DecorationImage(
-                                                  image: NetworkImage(image(data
-                                                      ?.list[index]
-                                                      .weather
-                                                      ?.first
-                                                      .icon)))),
+                                                  image: AssetImage(iconImage(
+                                                      data?.list[index].weather
+                                                          ?.first.icon)))),
                                         ),
                                         const SizedBox(
                                           height: 15,
