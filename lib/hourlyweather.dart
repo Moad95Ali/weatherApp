@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_app/model/fiveweather.dart';
 import 'package:weather_app/style/textStyle.dart';
+import 'package:weather_app/utils/number_util.dart';
 import 'package:weather_app/utils/times.dart';
 import 'package:weather_app/model/weather.dart';
 
@@ -109,7 +110,7 @@ class _HourlyWatherState extends State<HourlyWather> {
                                           height: 15,
                                         ),
                                         Text(
-                                          '20',
+                                          "${NumberUtil.fixNumber(data?.list[index].main?.temp)} \u00b0",
                                           style: StyleText.tempStyle,
                                         )
                                       ],

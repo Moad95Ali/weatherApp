@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:weather_app/api/api.dart';
 import 'package:weather_app/api/constans.dart';
-import 'package:weather_app/bottomBar.dart';
+
 import 'package:weather_app/home_page.dart';
 import 'package:weather_app/model/weather.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
      debugShowCheckedModeBanner: false,
-      home: BottomBar()
+      home: HomePage()
     );
 
   }

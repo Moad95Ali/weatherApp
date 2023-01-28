@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:weather_app/api/api.dart';
 import 'package:weather_app/api/constans.dart';
-import 'package:weather_app/fiveDays.dart';
+
 import 'package:weather_app/hourlyweather.dart';
 import 'package:weather_app/model/weather.dart';
 import 'package:weather_app/style/textStyle.dart';
@@ -86,18 +86,12 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               width: 150,
                               height: 150,
-                              child: ColorFiltered(
-                                colorFilter: const ColorFilter.mode(
-                                  Colors.white,
-                                  BlendMode.colorBurn,
-                                ),
-                                child: Image.network(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                image: NetworkImage(
                                   image(data?.weather?.first.icon),
                                 ),
-                              ),
-
-                              //image: NetworkImage(
-                              //
+                              )),
                             ),
                             Text(
                               "${data?.weather?.first.description}",
@@ -113,7 +107,6 @@ class _HomePageState extends State<HomePage> {
                           height: 20,
                         ),
                         const HourlyWather(),
-                        const FiveDays(),
                       ],
                     ),
                   ),
