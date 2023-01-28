@@ -10,6 +10,7 @@ import 'package:weather_app/model/weather.dart';
 import 'package:weather_app/style/textStyle.dart';
 import 'package:weather_app/style/textStyle.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:weather_app/utils/number_util.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -72,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                               height: 12,
                             ),
                             Text(
-                              "${data?.main?.temp}",
+                              NumberUtil.fixNumber(data?.main?.temp),
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 32,
@@ -85,10 +86,18 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               width: 150,
                               height: 150,
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                image: AssetImage('images/weather4.png'),
-                              )),
+                              child: ColorFiltered(
+                                colorFilter: const ColorFilter.mode(
+                                  Colors.white,
+                                  BlendMode.colorBurn,
+                                ),
+                                child: Image.network(
+                                  image(data?.weather?.first.icon),
+                                ),
+                              ),
+
+                              //image: NetworkImage(
+                              //
                             ),
                             Text(
                               "${data?.weather?.first.description}",
@@ -107,19 +116,10 @@ class _HomePageState extends State<HomePage> {
                         const FiveDays(),
                       ],
                     ),
-
                   ),
-
           );
         },
       ),
     );
   }
 }
-
-// margin: const EdgeInsets.all(15),
-// height: 180,
-// decoration: BoxDecoration(
-// color: const Color(0x95272a48),
-// borderRadius: BorderRadius.circular(15)
-// ),
