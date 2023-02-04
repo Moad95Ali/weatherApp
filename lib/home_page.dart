@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:weather_app/api/api.dart';
 import 'package:weather_app/api/constans.dart';
+import 'package:weather_app/fiveDays.dart';
 
 import 'package:weather_app/hourlyweather.dart';
 import 'package:weather_app/model/weather.dart';
@@ -108,6 +109,7 @@ class _HomePageState extends State<HomePage> {
                           height: 20,
                         ),
                         const HourlyWather(),
+                        const FiveDays(),
                         const Satellite()
                       ],
                     ),

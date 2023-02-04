@@ -26,6 +26,7 @@ class Api {
       return null;
     }
   }
+
   // we add ? bcz we have null value will return, its called nullsaftey in flutter
   Future<ForestCast?> getForestCast(
       String path, Map<String, dynamic> queryParameters) async {
@@ -42,13 +43,12 @@ class Api {
       return ForestCast.fromJson(jsonDecode(response.body));
     } else {
       return null;
-    
+    }
   }
-}
-
 
 //https://api.openweathermap.org/data/2.5/weather?q=amman&lang=eng&mode=json&appid=2e5045c7038a055bebcd451b9fbc88f2
 
 //https://api.openweathermap.org/data/2.5/forecast?q=amman&lang=eng&mode=json&appid=2e5045c7038a055bebcd451b9fbc88f2
 }
+
 
